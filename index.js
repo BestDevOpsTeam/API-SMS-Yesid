@@ -1,8 +1,8 @@
 const express = require("express")
 const bodyParser = require('body-parser');
-var HTTP_PORT = 3014;
+let HTTP_PORT = 3014;
 const app = express();
-var sms = require('./sms.js');
+let sms = require('./sms.js');
 
 
 app.use(bodyParser.urlencoded({
