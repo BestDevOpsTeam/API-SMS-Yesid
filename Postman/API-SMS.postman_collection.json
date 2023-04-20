@@ -9,6 +9,17 @@
 			"name": "health",
 			"event": [
 				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
 					"listen": "test",
 					"script": {
 						"exec": [
@@ -20,16 +31,28 @@
 					}
 				}
 			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"celular\": \"57302622217\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8014/api/v1/health",
+					"raw": "http://localhost:3014/api/v1/health",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8014",
+					"port": "3014",
 					"path": [
 						"api",
 						"v1",
@@ -52,6 +75,17 @@
 						],
 						"type": "text/javascript"
 					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
 				}
 			],
 			"request": {
@@ -59,7 +93,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"url\" : \"www.google.com\"\r\n}",
+					"raw": "{\r\n    \"celular\": \"573002622217\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -67,16 +101,16 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8014/api/v1/qr",
+					"raw": "http://localhost:3014/api/v1/sms",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8014",
+					"port": "3014",
 					"path": [
 						"api",
 						"v1",
-						"qr"
+						"sms"
 					]
 				}
 			},
@@ -91,7 +125,9 @@
 						"exec": [
 							"pm.test(\"Response status code is 500\", function () {\r",
 							"    pm.response.to.have.status(500);\r",
-							"});"
+							"});\r",
+							"\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -102,7 +138,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"urls\": \"google.com\"\r\n}",
+					"raw": "{\r\n    \"celulars\": \" \"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -110,16 +146,16 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8014/api/v1/qr",
+					"raw": "http://localhost:3014/api/v1/sms",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8014",
+					"port": "3014",
 					"path": [
 						"api",
 						"v1",
-						"qr"
+						"sms"
 					]
 				}
 			},
