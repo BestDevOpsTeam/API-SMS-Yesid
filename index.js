@@ -1,6 +1,6 @@
 const express = require("express")
 const bodyParser = require('body-parser');
-var HTTP_PORT = 6015;
+var HTTP_PORT = 3014;
 const app = express();
 var sms = require('./sms.js');
 
@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.get("/api/v1/health", async (req, res, next) => {
     res.json({
         "message": "Ok",
-        "server": "UP"
+        "server": "up"
     })
 });
 
